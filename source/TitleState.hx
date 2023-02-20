@@ -253,8 +253,6 @@ class TitleState extends MusicBeatState
 
 		switch(easterEgg.toUpperCase())
 		{
-    }
-
 			default:
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
