@@ -21,7 +21,7 @@ import lime.utils.Assets;
 
 using StringTools;
 
-class CreditsState extends MusicBeatState
+class CreditState extends MusicBeatState
 {
 	var curSelected:Int = -1;
 
