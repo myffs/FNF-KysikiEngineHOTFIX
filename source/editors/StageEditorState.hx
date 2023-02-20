@@ -12,7 +12,7 @@ import flixel.FlxBasic;
 }*/
 
 typedef Stage
-    public var name:String;
+       var name:String;
     public var directory:String;
 	public var alpha:Float;
 	public var xAxis:Float;
