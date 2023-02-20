@@ -84,7 +84,8 @@ class CreditState extends MusicBeatState
 			['Kysiki Engine Team'],
 			['MyFnf',		'myfnf',		'Main Director of Kysiki Engine',								'https://twitter.com/MyFnf_',	'0000FF'],
 			['Moxie',			'moxie',			'Main Programmer of Kysiki Engine',							'https://twitter.com/meme_hoovy',		'FFFFFF'],
-			['Kxley',                  'JYT',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley'   'FFFFFF'],
+			['Kxley',                  'JYT',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley',   'FFFFFF'],
+			[''],
 			["Funkin' Crew"],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
 			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
@@ -135,7 +136,7 @@ class CreditState extends MusicBeatState
 		add(descBox);
 
 		descText = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER/*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
+		descText.setFormat(Paths.font("muskeet.ttf"), 32, FlxColor.WHITE, CENTER/*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
 		descText.scrollFactor.set();
 		//descText.borderSize = 2.4;
 		descBox.sprTracker = descText;
