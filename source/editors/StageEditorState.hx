@@ -11,7 +11,7 @@ import flixel.FlxBasic;
     args:Array<Dynamic>
 }*/
 
-typedef Stage{
+typedef Stage
     public var name:String;
     public var directory:String;
 	public var alpha:Float;
