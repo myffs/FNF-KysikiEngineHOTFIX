@@ -25,7 +25,7 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.1'; //For Discord RPC, Current Version, and more...
+	public static var psychEngineVersion:String = '0.1.2'; //For Discord RPC, Current Version, and more...
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
