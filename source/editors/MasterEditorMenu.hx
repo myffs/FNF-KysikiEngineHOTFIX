@@ -23,6 +23,8 @@ class MasterEditorMenu extends MusicBeatState
 	var options:Array<String> = [
 		'Week Editor',
 		'Menu Character Editor',
+		'Stage Editor',
+		'Custom Menu Editor',
 		'Dialogue Editor',
 		'Dialogue Portrait Editor',
 		'Character Editor',
@@ -126,6 +128,11 @@ class MasterEditorMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new DialogueEditorState(), false);
 				case 'Chart Editor'://felt it would be cool maybe
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
+				case 'Stage Editor'://forgot to add this in
+					LoadingState.loadAndSwitchState(new StageEditorState(), false);
+				//case 'Custom Menu Editor'://forgot to add this in
+					//LoadingState.loadAndSwitchState(new (), false);
+			                    //Not quite done with this editor yet
 			}
 			FlxG.sound.music.volume = 0;
 			#if PRELOAD_ALL
@@ -177,11 +184,11 @@ class MasterEditorMenu extends MusicBeatState
 	
 		WeekData.setDirectoryFromWeek();
 		if(directories[curDirectory] == null || directories[curDirectory].length < 1)
-			directoryTxt.text = '< No Mod Directory Loaded >';
+			directoryTxt.text = '< No Modding Directory Imported >';
 		else
 		{
 			Paths.currentModDirectory = directories[curDirectory];
-			directoryTxt.text = '< Loaded Mod Directory: ' + Paths.currentModDirectory + ' >';
+			directoryTxt.text = '< Imported Modding Directory: ' + Paths.currentModDirectory + ' >';
 		}
 		directoryTxt.text = directoryTxt.text.toUpperCase();
 	}
