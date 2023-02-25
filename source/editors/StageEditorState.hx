@@ -3,7 +3,7 @@ package editors;
 import flixel.FlxG;
 import flixel.FlxBasic;
 
-typedef Stage {
+typedef Stage 
         public var name:String;
         public var directory:String;
 	public var alpha:Float;
@@ -16,7 +16,7 @@ typedef Stage {
 	public var flipX:Bool;
 	public var flipY:Bool;
 	public var beforeChars:Bool;    
-}
+
 
 class StageEditorState extends MusicBeatState {
     public static var instance:StageEditorState = null;
