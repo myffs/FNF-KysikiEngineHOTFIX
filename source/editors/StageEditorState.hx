@@ -3,14 +3,6 @@ package editors;
 import flixel.FlxG;
 import flixel.FlxBasic;
 
-/*typedef Object
-{
-    object1:BGSprite,
-    object2:Dynamic,
-    animated:Bool,
-    args:Array<Dynamic>
-}*/
-
 typedef Stage
        var name:String;
     public var directory:String;
