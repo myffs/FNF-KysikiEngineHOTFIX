@@ -573,14 +573,14 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					#if PSYCH_WATERMARKS
+					#if KYSIKI_WATERMARKS
 					createCoolText(['Kysiki Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
 				// credTextShit.visible = true;
 				case 4:
-					#if PSYCH_WATERMARKS
+					#if KYSIKI_WATERMARKS
 					addMoreText('MyFnf', 15);
 					addMoreText('Moxie', 15);
 					addMoreText('', 15);
@@ -595,7 +595,7 @@ class TitleState extends MusicBeatState
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
 				case 6:
-					#if PSYCH_WATERMARKS
+					#if KYSIKI_WATERMARKS
 					createCoolText(['Not associated', 'with'], -40);
 					#else
 					createCoolText(['In association', 'with'], -40);
