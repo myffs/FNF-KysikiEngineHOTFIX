@@ -3,7 +3,7 @@ package editors;
 import flixel.FlxG;
 import flixel.FlxBasic;
 
-typedef Stage
+typedef Stage {
         public var name:String;
         public var directory:String;
 	public var alpha:Float;
