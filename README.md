@@ -4,7 +4,6 @@ A engine
 
 # Features
 
-* Stage Editor
 * Custom Menu Editor
 
 # Creators
