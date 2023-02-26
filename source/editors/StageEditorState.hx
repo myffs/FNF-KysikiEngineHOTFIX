@@ -1,11 +1,11 @@
-package editors;
+/*package editors;
 
 import flixel.FlxG;
 import flixel.FlxBasic;
 
-typedef Stage 
-        //public var name:String;
-        public var directory:String;
+ typedef Stage
+    public var name:String;
+    public var directory:String;
 	public var alpha:Float;
 	public var xAxis:Float;
 	public var yAxis:Float;
@@ -16,9 +16,8 @@ typedef Stage
 	public var flipX:Bool;
 	public var flipY:Bool;
 	public var beforeChars:Bool;    
-
-
-class StageEditorState extends MusicBeatState {
+ */
+/* class StageEditorState extends MusicBeatState {
     public static var instance:StageEditorState = null;
 
     // var objects:Array<Object> = [];
@@ -32,18 +31,19 @@ class StageEditorState extends MusicBeatState {
     override function create(){
         /*objects = [
             getObjects();
-        ];*/
+        ];*/ 
+        
 
-        super.create();
+    /*    super.create(); *\
     }
 
     /*inline function getObjects(daObj1:Dynamic, daObj2:Dynamic, anim:Bool = false, cum:Array<Dynamic>):Object{
         return {object1:daObj1, object2:daObj2, animated:anim, args:cum};
     }*/
 
-    override function destroy(){
+/*    override function destroy(){ 
         instance = null;
 
         return super.destroy();
     }    
-}
+}*/
