@@ -23,7 +23,6 @@ class MasterEditorMenu extends MusicBeatState
 	var options:Array<String> = [
 		'Week Editor',
 		'Menu Character Editor',
-		'Stage Editor',
 		'Custom Menu Editor',
 		'Dialogue Editor',
 		'Dialogue Portrait Editor',
@@ -128,11 +127,9 @@ class MasterEditorMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new DialogueEditorState(), false);
 				case 'Chart Editor'://felt it would be cool maybe
 					LoadingState.loadAndSwitchState(new ChartingState(), false);
-				case 'Stage Editor'://forgot to add this in
-					LoadingState.loadAndSwitchState(new StageEditorState(), false);
-				//case 'Custom Menu Editor'://forgot to add this in
-					//LoadingState.loadAndSwitchState(new (), false);
-			                    //Not quite done with this editor yet
+				case 'Custom Menu Editor':
+					LoadingState.loadAndSwitchState(new CustomMenuEditorState(), false);
+			      
 			}
 			FlxG.sound.music.volume = 0;
 			#if PRELOAD_ALL
