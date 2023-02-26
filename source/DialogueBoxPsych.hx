@@ -46,12 +46,12 @@ typedef DialogueFile = {
 }
 
 typedef DialogueLine = {
-	var portrait:Null<String>;
+	var character:Null<String>;
 	var expression:Null<String>;
-	var text:Null<String>;
-	var boxState:Null<String>;
-	var speed:Null<Float>;
-	var sound:Null<String>;
+	var dialogue:Null<String>;
+	var boxType:Null<String>;
+	var dialougeSpeed:Null<Float>;
+	var dialougeSound:Null<String>;
 }
 
 class DialogueCharacter extends FlxSprite
