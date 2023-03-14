@@ -28,6 +28,7 @@ class MasterEditorMenu extends MusicBeatState
 		'Character Editor',
 		'Chart Editor',
 		'Custom Menu Editor'
+		
 	];
 	private var grpTexts:FlxTypedGroup<Alphabet>;
 	private var directories:Array<String> = [null];
