@@ -54,7 +54,7 @@ class CustomMenuEditorState extends MusicBeatState //we all love you, MusicBeatS
   override function create()
     {
       
-      optionShit = new FlxSprite
+      optionShit = new FlxSprite();
       var tipTextArray:Array<String> = "WASD - Move around".split('\n');
        
       }
