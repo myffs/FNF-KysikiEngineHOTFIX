@@ -18,8 +18,7 @@ import sys.FileSystem;
 
 using StringTools;
 
-class MasterEditorMenu extends MusicBeatState
-{
+class MasterEditorMenu extends MusicBeatState {
 	var options:Array<String> = [
 		'Week Editor',
 		'Menu Character Editor',
