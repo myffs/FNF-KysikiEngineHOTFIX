@@ -10,4 +10,4 @@ A engine
 
 * MyFnf - Director
 * Moxie - Main Programmer
-* Kxley - Main Playtest / Artist
+* Kxley - Main Playtester / Artist
