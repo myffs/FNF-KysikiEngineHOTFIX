@@ -41,7 +41,7 @@ class CreditState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Credits Menu", null);
 		#end
 
 		persistentUpdate = true;
@@ -84,7 +84,8 @@ class CreditState extends MusicBeatState
 			['Kysiki Engine Team'],
 			['MyFnf',		'myfnf',		'Main Director of Kysiki Engine',								'https://twitter.com/myfnf1698',	'0000FF'],
 			['Moxie',			'moxie',			'Main Programmer of Kysiki Engine',							'https://twitter.com/meme_hoovy',		'FFFFFF'],
-			['Kxley',                  'JYT',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley',   'FFFFFF'],
+			['Kxley',                  'kxley',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley',   'FFFFFF'],
+			['SteFan[BETA]2008',       'stefan',           'Programmer of Kysiki Engine',                                                                                  'https://twitter.com/StefanBETA123',   'D2b48c'],
 			[''],
 			["Funkin' Crew"],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
