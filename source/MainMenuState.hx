@@ -20,6 +20,7 @@ import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -31,6 +32,11 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
+	#end
 
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -38,7 +44,6 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		#if !switch 'donate', #end
 		'options'
 	];
 
@@ -49,6 +54,10 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
+		#if (flixel_addons >= "3.0.0")
+		checker.scrollFactor.set(0.2, 0.2);
+		#end
+		
 		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
 		#end
@@ -97,7 +106,9 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 		
-		// magenta.scrollFactor.set();
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		checker.color = 0xFFfd719b;
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -175,6 +186,8 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
