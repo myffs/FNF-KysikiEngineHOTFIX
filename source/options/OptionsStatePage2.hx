@@ -37,7 +37,7 @@ class OptionsState extends MusicBeatState
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case '<-- Page 1':
-			    MusicBeatState.switchState(new OptionsState());
+			     LoadingState.loadAndSwitchState(new OptionsState());
 		}
 	}
 
