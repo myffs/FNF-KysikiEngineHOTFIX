@@ -29,7 +29,7 @@ using StringTools;
 
 class OptionsStatePage2 extends MusicBeatState
 {
-	var options:Array<String> = ['This is a WIP!', '<-- Page 1'];
+	var options:Array<String> = ['Custom Menus', '<-- Page 1'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -38,6 +38,8 @@ class OptionsStatePage2 extends MusicBeatState
 		switch(label) {
 			case '<-- Page 1':
 			     LoadingState.loadAndSwitchState(new OptionsState());
+			  case 'Custom Menus':
+			     openSubState(new options.CustomMenus());
 		}
 	}
 
