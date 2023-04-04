@@ -27,7 +27,7 @@ import Controls;
 
 using StringTools;
 
-class OptionsState extends MusicBeatState
+class OptionsStatePage2 extends MusicBeatState
 {
 	var options:Array<String> = ['This is a WIP!', '<-- Page 1'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
