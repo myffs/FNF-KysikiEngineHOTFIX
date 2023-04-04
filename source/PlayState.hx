@@ -2233,6 +2233,7 @@ class PlayState extends MusicBeatState
 	public function updateScore(miss:Bool = false)
 	{
 		scoreTxt.text = 'Score: ' + songScore
+		+ ' | Misses: ' + songMisses
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '')
 		+ ' | Combos: ' + combo;
