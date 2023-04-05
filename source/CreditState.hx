@@ -86,6 +86,7 @@ class CreditState extends MusicBeatState
 			['Moxie',			'moxie',			'Main Programmer of Kysiki Engine',							'https://twitter.com/meme_hoovy',		'FFFFFF'],
 			['Kxley',                  'kxley',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley',   'FFFFFF'],
 			['SteFan[BETA]2008',       'stefan',           'Programmer of Kysiki Engine',                                                                                  'https://twitter.com/StefanBETA123',   'D2b48c'],
+			['Wicked',       'wick',           'EX Programmer',                                                                                  'https://twitter.com/wickieIDK',   '32CD32'],
 			[''],
 			["Funkin' Crew"],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
