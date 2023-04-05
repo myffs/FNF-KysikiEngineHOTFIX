@@ -111,11 +111,15 @@ class Conductor
 	{
 		bpmChangeMap = [];
 
+		if (song == null) return;
+		if (song.notes == null) return;
+
 		var curBPM:Float = song.bpm;
 		var totalSteps:Int = 0;
 		var totalPos:Float = 0;
 		for (i in 0...song.notes.length)
 		{
+			if(song.notes[i] == null) continue;
 			if(song.notes[i].changeBPM && song.notes[i].bpm != curBPM)
 			{
 				curBPM = song.notes[i].bpm;
