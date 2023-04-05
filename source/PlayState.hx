@@ -60,6 +60,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import Conductor.Rating;
+// import Song.YoshSong;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -98,7 +99,6 @@ class PlayState extends MusicBeatState
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
 
-	#if (haxe >= "4.0.0")
 	public var boyfriendMap:Map<String, Boyfriend> = new Map();
 	public var dadMap:Map<String, Character> = new Map();
 	public var gfMap:Map<String, Character> = new Map();
@@ -109,18 +109,6 @@ class PlayState extends MusicBeatState
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, ModchartText> = new Map<String, ModchartText>();
 	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
-	#else
-	public var boyfriendMap:Map<String, Boyfriend> = new Map<String, Boyfriend>();
-	public var dadMap:Map<String, Character> = new Map<String, Character>();
-	public var gfMap:Map<String, Character> = new Map<String, Character>();
-	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
-	public var modchartTweens:Map<String, FlxTween> = new Map();
-	public var modchartSprites:Map<String, ModchartSprite> = new Map();
-	public var modchartTimers:Map<String, FlxTimer> = new Map();
-	public var modchartSounds:Map<String, FlxSound> = new Map();
-	public var modchartTexts:Map<String, ModchartText> = new Map();
-	public var modchartSaves:Map<String, FlxSave> = new Map();
-	#end
 
 	public var BF_X:Float = 770;
 	public var BF_Y:Float = 100;
@@ -324,6 +312,19 @@ class PlayState extends MusicBeatState
 	public static var lastCombo:FlxSprite;
 	// stores the last combo score objects in an array
 	public static var lastScore:Array<FlxSprite> = [];
+
+	/*
+	@:isVar
+	private var yoshChart(get, null):YoshSong = null;
+
+	inline private function get_yoshChart(){
+		// return isYoshChart() ? cast(SONG, YoshSong) : null;
+		return isYoshChart() ? Reflect.copy(SONG) : null;
+	}
+
+	inline function isYoshChart():Bool{
+		return Song.isYoshChart;
+	}*/
 
 	override public function create()
 	{
@@ -2423,7 +2424,27 @@ class PlayState extends MusicBeatState
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
 				swagNote.noteType = songNotes[3];
-				if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
+				if(!Std.isOfType(songNotes[3], String))
+					swagNote.noteType = editors.ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
+				/*else if (yoshChart != null){
+					for (i in yoshChart.noteTypes){
+						switch (i){
+							case 'Default Note':
+								i = editors.ChartingState.noteTypeList[0];
+							case 'Alt Anim Note':
+								i = editors.ChartingState.noteTypeList[1];
+							case 'Hurt Note':
+								i = editors.ChartingState.noteTypeList[3];
+							case 'GF Note':
+								i = editors.ChartingState.noteTypeList[4];
+							case 'No Anim Note':
+								i = editors.ChartingState.noteTypeList[5];
+							case _:
+								i = editors.ChartingState.noteTypeList[0];
+								trace("Unsupported Type found!");
+						}
+					}
+				}*/
 
 				swagNote.scrollFactor.set();
 

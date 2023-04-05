@@ -45,12 +45,18 @@ class Song
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
 
+	public static var isYoshChart = false;
+
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
 		if(songJson.gfVersion == null)
 		{
 			songJson.gfVersion = songJson.player3;
 			songJson.player3 = null;
+		}
+
+		if (songJson.noteTypes != null || songJson.keyNumber != null || songJson.sectionLength != null || songJson.scripts != null){
+			isYoshChart = true; // found out it's a yoshicrafter engine chart
 		}
 
 		if(songJson.events == null)
@@ -119,9 +125,72 @@ class Song
 		onLoadJson(songJson);
 		return songJson;
 	}
+	
+	/*inline static function convertYoshChart(rawJson:String){
+		var songJson:SwagSong;
+		var yoshChart:YoshSong;
+		yoshChart = cast Json.parse(rawJson).song;
+
+		for (i in yoshChart.noteTypes){
+			switch (i){
+				case 'Default Note':
+					i = editors.ChartingState.noteTypeList[0];
+				case 'Alt Anim Note':
+					i = editors.ChartingState.noteTypeList[1];
+				case 'Hurt Note':
+					i = editors.ChartingState.noteTypeList[3];
+				case 'GF Note':
+					i = editors.ChartingState.noteTypeList[4];
+				case 'No Anim Note':
+					i = editors.ChartingState.noteTypeList[5];
+				case _:
+					i = editors.ChartingState.noteTypeList[0];
+					trace("Unsupported Type found!");
+			}
+		}
+		songJson = null;
+		songJson = {
+			bpm: Math.abs(yoshChart.bpm),
+			needsVoices: yoshChart.needsVoices,
+			stage: yoshChart.stage,
+			speed: yoshChart.speed,
+			player1: yoshChart.player1,
+			player2: yoshChart.player2,
+			arrowSkin: 'NOTE_assets',
+			splashSkin: 'noteSplashes'
+		}
+		yoshChart = null;
+		return songJson;
+	}*/
+
+	inline private function parseYoshChart(rawJson:String):YoshSong
+		return cast Json.parse(rawJson).song;
 
 	inline public static function parseJSONshit(rawJson:String):SwagSong
-	{
+		// return isYoshChart ? convertYoshChart(rawJson) : cast Json.parse(rawJson).song;
 		return cast Json.parse(rawJson).song;
-	}
+}
+
+typedef YoshSong =
+{
+	var events:Array<Dynamic>;
+	var song:String;
+	var notes:Array<SwagSection>;
+	var bpm:Int;
+	var needsVoices:Bool;
+	var speed:Float;
+
+	var player1:String;
+	var player2:String;
+	var keyNumber:Null<Int>;
+	var noteTypes:Array<String>;
+
+	var stage:String;
+
+	@:optional var sectionLength:Null<Int>;
+	@:optional var scripts:Array<String>;
+	@:optional var gfVersion:String;
+	@:optional var noGF:Bool;
+	@:optional var noBF:Bool;
+	@:optional var noDad:Bool;
 }
