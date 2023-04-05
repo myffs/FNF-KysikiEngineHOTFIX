@@ -7,6 +7,7 @@
 * Moxie - Main Programmer
 * Kxley - Main Playtester / Artist
 * SteFan[BETA]2008 - Programmer
+* Wicked - EX Progammer
 
 
 # Features
