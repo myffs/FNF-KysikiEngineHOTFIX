@@ -636,8 +636,8 @@ class Sound extends EventDispatcher
 			return null;
 		}
 
-		if (changeID < funkin.system.Main.changeID) {
-			changeID = funkin.system.Main.changeID;
+		if (changeID < Main.changeID) {
+			changeID = Main.changeID;
 			regen();
 		}
 
@@ -690,6 +690,7 @@ class Sound extends EventDispatcher
 			#else
 			if (__buffer.data != null)
 			{
+				var samples = (__buffer.data.length) / ((__buffer.channels * __buffer.bitsPerSample) / 8);
 				var thelength = Std.int(samples / __buffer.sampleRate * 1000);
 				if (thelength < 0) thelength = 12173936; // almost 4 hours
 				return thelength;
