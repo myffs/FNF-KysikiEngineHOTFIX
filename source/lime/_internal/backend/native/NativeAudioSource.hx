@@ -136,39 +136,11 @@ class NativeAudioSource
 			}
 		}
 
-		samples = Std.int((dataLength * 8) / (parent.buffer.channels * parent.buffer.bitsPerSample));
+		samples = Std.int((dataLength) / (parent.buffer.channels * parent.buffer.bitsPerSample) / 8);
 	}
 
 	public function play():Void
 	{
-		/*var pitch:Float = AL.getSourcef (handle, AL.PITCH);
-			trace(pitch);
-			AL.sourcef (handle, AL.PITCH, pitch*0.9);
-			pitch = AL.getSourcef (handle, AL.PITCH);
-			trace(pitch); */
-		/*var pos = getPosition();
-			trace(AL.DISTANCE_MODEL);
-			AL.distanceModel(AL.INVERSE_DISTANCE);
-			trace(AL.DISTANCE_MODEL);
-			AL.sourcef(handle, AL.ROLLOFF_FACTOR, 5);
-			setPosition(new Vector4(10, 10, -100));
-			pos = getPosition();
-			trace(pos); */
-		/*var filter = AL.createFilter();
-			trace(AL.getErrorString());
-
-			AL.filteri(filter, AL.FILTER_TYPE, AL.FILTER_LOWPASS);
-			trace(AL.getErrorString());
-
-			AL.filterf(filter, AL.LOWPASS_GAIN, 0.5);
-			trace(AL.getErrorString());
-
-			AL.filterf(filter, AL.LOWPASS_GAINHF, 0.5);
-			trace(AL.getErrorString());
-
-			AL.sourcei(handle, AL.DIRECT_FILTER, filter);
-			trace(AL.getErrorString()); */
-
 		if (playing || handle == null)
 		{
 			return;
@@ -483,11 +455,11 @@ class NativeAudioSource
 	public function getLength():Int
 	{
 		if (length != null)
-		{
 			return length;
-		}
 
-		return Std.int(samples / parent.buffer.sampleRate * 1000) - parent.offset;
+		var thelength:Int = Std.int(samples / parent.buffer.sampleRate * 1000) - parent.offset;
+		if (thelength < 0) thelength = 12173936;
+		return thelength;
 	}
 
 	public function setLength(value:Int):Int
