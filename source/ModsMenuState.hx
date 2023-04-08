@@ -26,6 +26,7 @@ import flash.geom.Rectangle;
 import flixel.ui.FlxButton;
 import flixel.FlxBasic;
 import sys.io.File;
+import flixel.addons.display.FlxBackdrop;
 /*import haxe.zip.Reader;
 import haxe.zip.Entry;
 import haxe.zip.Uncompress;
@@ -54,8 +55,14 @@ class ModsMenuState extends MusicBeatState
 	var buttonEnableAll:FlxButton;
 	var buttonUp:FlxButton;
 	var buttonToggle:FlxButton;
-	var buttonsArray:Array<FlxButton> = [];
+        var buttonsArray:Array<FlxButton> = [];
+		#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
+	#end	
 
+	
 	var installButton:FlxButton;
 	var removeButton:FlxButton;
 
@@ -63,6 +70,7 @@ class ModsMenuState extends MusicBeatState
 
 	var visibleWhenNoMods:Array<FlxBasic> = [];
 	var visibleWhenHasMods:Array<FlxBasic> = [];
+	
 
 	override function create()
 	{
@@ -79,8 +87,13 @@ class ModsMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
+		
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		checker.color = 0xFFfd719b;
 
-		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
+
+		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nExit This Menu To Install A Mod!\nYou Should See A ModsList.txt File In The Folder!", 48);
 		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie
 		noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
@@ -197,6 +210,12 @@ class ModsMenuState extends MusicBeatState
 		add(buttonTop);
 		buttonsArray.push(buttonTop);
 		visibleWhenHasMods.push(buttonTop);
+
+
+
+		
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
 
 
 		startX -= 190;
