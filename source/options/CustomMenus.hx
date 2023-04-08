@@ -40,6 +40,14 @@ class CustomMenus extends BaseOptionsMenu
 			'bool',
 			true);
 		addOption(option);
+		
+		var option:Option = new Option('Display Custom Menus:',
+			"How should the YOUR custom menus be dislayed?",
+			'displayCM',
+			'string',
+			'Normal',
+			['Normal', 'Alphabetical Order', 'Random']);
+		addOption(option);
 
 		super();
 	}
