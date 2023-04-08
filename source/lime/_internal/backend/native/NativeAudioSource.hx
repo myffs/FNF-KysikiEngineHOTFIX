@@ -136,7 +136,7 @@ class NativeAudioSource
 			}
 		}
 
-		samples = Std.int((dataLength) / (parent.buffer.channels * parent.buffer.bitsPerSample) / 8);
+		samples = Std.int((dataLength) / ((parent.buffer.channels * parent.buffer.bitsPerSample) / 8));
 	}
 
 	public function play():Void

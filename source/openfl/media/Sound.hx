@@ -439,7 +439,7 @@ class Sound extends EventDispatcher
 
 		#if lime
 		#if (js && html5)
-		var defaultLibrary = lime.utils.Assets.getLibrary("default");
+		var defaultLibrary = lime.utils.Assets.getLibrary("default"); // TODO: Improve this
 
 		if (defaultLibrary != null && defaultLibrary.cachedAudioBuffers.exists(url))
 		{
@@ -653,7 +653,7 @@ class Sound extends EventDispatcher
 		var pan = SoundMixer.__soundTransform.pan + sndTransform.pan;
 
 		if (pan > 1) pan = 1;
-		else if (pan < -1) pan = -1;
+		if (pan < -1) pan = -1;
 
 		var volume = SoundMixer.__soundTransform.volume * sndTransform.volume;
 
@@ -686,7 +686,7 @@ class Sound extends EventDispatcher
 		if (__buffer != null)
 		{
 			#if (js && html5 && howlerjs)
-			return __buffer.src.duration() * 1000;
+			return Std.int(__buffer.src.duration() * 1000);
 			#else
 			if (__buffer.data != null)
 			{
@@ -701,7 +701,9 @@ class Sound extends EventDispatcher
 				return Std.int(samples / __buffer.sampleRate * 1000);
 			}
 			else
+			{
 				return 0;
+			}
 			#end
 		}
 		#end
