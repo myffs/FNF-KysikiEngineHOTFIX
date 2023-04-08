@@ -15,6 +15,7 @@ import flixel.system.FlxSound;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -31,6 +32,11 @@ class MasterEditorMenu extends MusicBeatState {
 	];
 	private var grpTexts:FlxTypedGroup<Alphabet>;
 	private var directories:Array<String> = [null];
+	#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
+	#end	
 
 	private var curSelected = 0;
 	private var curDirectory = 0;
@@ -43,6 +49,10 @@ class MasterEditorMenu extends MusicBeatState {
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Editors Main Menu", null);
 		#end
+
+		#if (flixel_addons >= "3.0.0")
+		checker.scrollFactor.set(0.2, 0.2);
+		#end		
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.scrollFactor.set();
@@ -60,6 +70,10 @@ class MasterEditorMenu extends MusicBeatState {
 			grpTexts.add(leText);
 			leText.snapToPosition();
 		}
+
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		checker.color = 0xFFfd719b;
 		
 		#if MODS_ALLOWED
 		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 42).makeGraphic(FlxG.width, 42, 0xFF000000);
@@ -89,28 +103,21 @@ class MasterEditorMenu extends MusicBeatState {
 	override function update(elapsed:Float)
 	{
 		if (controls.UI_UP_P)
-		{
 			changeSelection(-1);
-		}
 		if (controls.UI_DOWN_P)
-		{
 			changeSelection(1);
-		}
 		#if MODS_ALLOWED
 		if(controls.UI_LEFT_P)
-		{
 			changeDirectory(-1);
-		}
 		if(controls.UI_RIGHT_P)
-		{
 			changeDirectory(1);
-		}
 		#end
 
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
+
 		if (controls.BACK)
-		{
 			MusicBeatState.switchState(new MainMenuState());
-		}
 
 		if (controls.ACCEPT)
 		{

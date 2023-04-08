@@ -18,6 +18,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import lime.utils.Assets;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -34,6 +35,11 @@ class CreditState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 	var descBox:AttachedSprite;
+	#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
+	#end	
 
 	var offsetThing:Float = -75;
 
@@ -48,7 +54,11 @@ class CreditState extends MusicBeatState
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
 		bg.screenCenter();
-		
+
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		checker.color = 0xFFfd719b;
+
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
@@ -157,13 +167,16 @@ class CreditState extends MusicBeatState
 
 	var quitting:Bool = false;
 	var holdTime:Float = 0;
+
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.7)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
-
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
+		
 		if(!quitting)
 		{
 			if(creditsStuff.length > 1)

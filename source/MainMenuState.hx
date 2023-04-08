@@ -105,7 +105,7 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
+
 		add(checker);
 		checker.scrollFactor.set(0.07,0);
 		checker.color = 0xFFfd719b;
@@ -114,9 +114,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var scale:Float = 1;
-		/*if(optionShit.length > 6) {
-			scale = 6 / optionShit.length;
-		}*/
 
 		for (i in 0...optionShit.length)
 		{

@@ -7,7 +7,7 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 
 class ClientPrefs {
-        public static var displayCM:String = 'Normal';
+	public static var displayCM:String = 'Normal';
 	public static var idkSCM:Bool = true;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
@@ -97,7 +97,7 @@ class ClientPrefs {
 
 	public static function saveSettings() {
 		FlxG.save.data.displayCM = displayCM;
-		FlxG.save.data.downScroll = idkSCM;
+		FlxG.save.data.idkSCM = idkSCM;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
@@ -246,6 +246,12 @@ class ClientPrefs {
 		if(FlxG.save.data.pauseMusic != null) {
 			pauseMusic = FlxG.save.data.pauseMusic;
 		}
+		if(FlxG.save.data.idkSCM != null) {
+			idkSCM = FlxG.save.data.idkSCM;
+		}
+		if(FlxG.save.data.displayCM != null) {
+			displayCM = FlxG.save.data.displayCM;
+		}		
 		if(FlxG.save.data.gameplaySettings != null)
 		{
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;

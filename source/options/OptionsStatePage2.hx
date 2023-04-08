@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -33,6 +34,11 @@ class OptionsStatePage2 extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+	#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
+	#end
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
@@ -58,6 +64,10 @@ class OptionsStatePage2 extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		checker.color = 0xFFfd719b;
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -88,6 +98,9 @@ class OptionsStatePage2 extends MusicBeatState
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
+
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
 
 		if (controls.UI_UP_P) {
 			changeSelection(-1);
