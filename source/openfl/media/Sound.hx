@@ -691,7 +691,7 @@ class Sound extends EventDispatcher
 			if (__buffer.data != null)
 			{
 				var thelength = Std.int(samples / __buffer.sampleRate * 1000);
-				if (thelength < 0) thelength = 12173936;
+				if (thelength < 0) thelength = 12173936; // almost 4 hours
 				return thelength;
 			}
 			else if (__buffer.__srcVorbisFile != null)

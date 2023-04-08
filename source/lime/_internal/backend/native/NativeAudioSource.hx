@@ -458,7 +458,7 @@ class NativeAudioSource
 			return length;
 
 		var thelength:Int = Std.int(samples / parent.buffer.sampleRate * 1000) - parent.offset;
-		if (thelength < 0) thelength = 12173936;
+		if (thelength < 0) thelength = 12173936; // almost 4 hours
 		return thelength;
 	}
 
