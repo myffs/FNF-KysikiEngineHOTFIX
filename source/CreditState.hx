@@ -57,7 +57,6 @@ class CreditState extends MusicBeatState
 
 		add(checker);
 		checker.scrollFactor.set(0.07,0);
-		checker.color = 0xFFfd719b;
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -159,6 +158,7 @@ class CreditState extends MusicBeatState
 		descBox.sprTracker = descText;
 		add(descText);
 
+		checker.color = getCurrentBGColor();
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
 		changeSelection();
