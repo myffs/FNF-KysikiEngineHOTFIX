@@ -3690,7 +3690,6 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-
 		moveCamera(!SONG.notes[curSection].mustHitSection);
 		callOnLuas('onMoveCamera', !SONG.notes[curSection].mustHitSection ? ['dad'] : ['boyfriend']);
 	}
@@ -3726,17 +3725,16 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function tweenCamIn() {
+	inline function tweenCamIn() {
 		if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
-			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
-				function (twn:FlxTween) {
-					cameraTwn = null;
-				}
+			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {
+				ease: FlxEase.elasticInOut, 
+				onComplete: _ -> cameraTwn = null
 			});
 		}
 	}
 
-	function snapCamFollowToPos(x:Float, y:Float) {
+	inline function snapCamFollowToPos(x:Float, y:Float) {
 		camFollow.set(x, y);
 		camFollowPos.setPosition(x, y);
 	}
