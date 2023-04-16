@@ -55,7 +55,7 @@ class ModsMenuState extends MusicBeatState
 	var buttonEnableAll:FlxButton;
 	var buttonUp:FlxButton;
 	var buttonToggle:FlxButton;
-        var buttonsArray:Array<FlxButton> = [];
+	var buttonsArray:Array<FlxButton> = [];
 
 	var installButton:FlxButton;
 	var removeButton:FlxButton;
@@ -81,7 +81,6 @@ class ModsMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
-		
 
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nOnce you exit this menu, you should see a modsList.txt file", 48);
@@ -201,9 +200,6 @@ class ModsMenuState extends MusicBeatState
 		add(buttonTop);
 		buttonsArray.push(buttonTop);
 		visibleWhenHasMods.push(buttonTop);
-
-
-
 	
 		startX -= 190;
 		buttonDisableAll = new FlxButton(startX, 0, "DISABLE ALL", function() {
@@ -260,61 +256,6 @@ class ModsMenuState extends MusicBeatState
 		// more buttons
 		var startX:Int = 1100;
 
-
-
-
-		/*
-		installButton = new FlxButton(startX, 620, "Install Mod", function()
-		{
-			installMod();
-		});
-		installButton.setGraphicSize(150, 70);
-		installButton.updateHitbox();
-		installButton.color = FlxColor.GREEN;
-		installButton.label.fieldWidth = 135;
-		installButton.label.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
-		setAllLabelsOffset(installButton, 2, 24);
-		add(installButton);
-		startX -= 180;
-
-		removeButton = new FlxButton(startX, 620, "Delete Selected Mod", function()
-		{
-			var path = haxe.io.Path.join([Paths.mods(), modsList[curSelected][0]]);
-			if(FileSystem.exists(path) && FileSystem.isDirectory(path))
-			{
-				trace('Trying to delete directory ' + path);
-				try
-				{
-					FileSystem.deleteFile(path); //FUCK YOU HAXE WHY DONT YOU WORK WAAAAAAAAAAAAH
-
-					var icon = mods[curSelected].icon;
-					var alphabet = mods[curSelected].alphabet;
-					remove(icon);
-					remove(alphabet);
-					icon.destroy();
-					alphabet.destroy();
-					modsList.remove(modsList[curSelected]);
-					mods.remove(mods[curSelected]);
-
-					if(curSelected >= mods.length) --curSelected;
-					changeSelection();
-				}
-				catch(e)
-				{
-					trace('Error deleting directory: ' + e);
-				}
-			}
-		});
-		removeButton.setGraphicSize(150, 70);
-		removeButton.updateHitbox();
-		removeButton.color = FlxColor.RED;
-		removeButton.label.fieldWidth = 135;
-		removeButton.label.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
-		setAllLabelsOffset(removeButton, 2, 15);
-		add(removeButton);
-		visibleWhenHasMods.push(removeButton);*/
-
-		///////
 		descriptionTxt = new FlxText(148, 0, FlxG.width - 216, "", 32);
 		descriptionTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, LEFT);
 		descriptionTxt.scrollFactor.set();
@@ -500,9 +441,7 @@ class ModsMenuState extends MusicBeatState
 				FlxG.camera.fade(FlxColor.BLACK, 0.5, false, FlxG.resetGame, false);
 			}
 			else
-			{
 				MusicBeatState.switchState(new MainMenuState());
-			}
 		}
 
 		if(controls.UI_UP_P)
