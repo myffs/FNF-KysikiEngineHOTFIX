@@ -47,7 +47,7 @@ class ModsMenuState extends MusicBeatState
 	var descriptionTxt:FlxText;
 	var needaReset = false;
 	private static var curSelected:Int = 0;
-	public static var defaultColor:FlxColor = 0xFF665AFF;
+	public static var defaultColor:FlxColor = 0xFF59DEFF;
 
 	var buttonDown:FlxButton;
 	var buttonTop:FlxButton;
@@ -56,13 +56,7 @@ class ModsMenuState extends MusicBeatState
 	var buttonUp:FlxButton;
 	var buttonToggle:FlxButton;
         var buttonsArray:Array<FlxButton> = [];
-		#if (flixel_addons < "3.0.0")
-	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
-	#else
-	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'));
-	#end	
 
-	
 	var installButton:FlxButton;
 	var removeButton:FlxButton;
 
@@ -80,7 +74,7 @@ class ModsMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Modding Menu", null);
 		#end
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
@@ -93,8 +87,8 @@ class ModsMenuState extends MusicBeatState
 		checker.color = 0xFFfd719b;
 
 
-		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nExit This Menu To Install A Mod!\nYou Should See A ModsList.txt File In The Folder!", 48);
-		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie
+		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nOnce you exit this menu, you should see a modsList.txt file", 48);
+		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nplease!.'; //im begging
 		noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
 		noModsTxt.borderSize = 2;
@@ -213,11 +207,7 @@ class ModsMenuState extends MusicBeatState
 
 
 
-		
-		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
-		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
-
-
+	
 		startX -= 190;
 		buttonDisableAll = new FlxButton(startX, 0, "DISABLE ALL", function() {
 			for (i in modsList)
