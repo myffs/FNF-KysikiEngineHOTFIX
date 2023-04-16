@@ -12,20 +12,22 @@ class ChangeLogMenu extends MusicBeatState {
     var changeLogText:FlxText = new FlxText(0, 0, FlxG.width, '', 20);
     var releaseArray:Array<GithubRelease> = new Array<GithubRelease>();
 
-    var unfinishedTxt:FlxText = new FlxText(0, -50, FlxG.width, 'This menu is unfinished currently', 20);
+    var unfinishedTxt:FlxText = new FlxText(0, 90, FlxG.width, 'This menu is unfinished currently', 20);
 
     override function create(){
         super.create();
 
         changeLogText.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        changeLogText.screenCenter(X);
+        changeLogText.screenCenter();
+        unfinishedTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        // unfinishedTxt.screenCenter();
 
         releaseArray = GithubAPI.getReleases('LilDrippyMyFnf', 'FNF-KysikiEngine', (e) -> {
             trace("Failed to get releases for changelog " + e.message);
         });
 
         for (i in releaseArray)
-            changeLogText.text = i.body.trim();
+            changeLogText.text = i.tag_name.trim() + ": " + i.body.trim();
 
         add(changeLogText);
         add(unfinishedTxt);
