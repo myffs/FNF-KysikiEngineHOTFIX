@@ -44,6 +44,7 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
+		'changelog',
 		'options'
 	];
 
@@ -257,6 +258,8 @@ class MainMenuState extends MusicBeatState
 										MusicBeatState.switchState(new CreditState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
+									case 'changelog':
+										LoadingState.loadAndSwitchState(new ChangeLogMenu());
 								}
 							});
 						}
