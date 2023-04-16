@@ -64,7 +64,12 @@ class ModsMenuState extends MusicBeatState
 
 	var visibleWhenNoMods:Array<FlxBasic> = [];
 	var visibleWhenHasMods:Array<FlxBasic> = [];
-	
+
+	#if (flixel_addons < "3.0.0")
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker', 'preload'), 0.2, 0.2, true, true);
+	#else
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker', 'preload'));
+	#end
 
 	override function create()
 	{
@@ -77,11 +82,18 @@ class ModsMenuState extends MusicBeatState
 		DiscordClient.changePresence("Modding Menu", null);
 		#end
 
+		#if (flixel_addons >= "3.0.0")
+		checker.scrollFactor.set(0.2, 0.2);
+		#end
+
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
 
+		add(checker);
+		checker.scrollFactor.set(0.07,0);
+		// checker.color = 0xFFfd719b;
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nOnce you exit this menu, you should see a modsList.txt file", 48);
 		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nplease!.'; //im begging
@@ -317,6 +329,7 @@ class ModsMenuState extends MusicBeatState
 		else
 			bg.color = mods[curSelected].color;
 
+		checker.color = bg.color;
 		intendedColor = bg.color;
 		changeSelection();
 		updatePosition();
@@ -418,6 +431,8 @@ class ModsMenuState extends MusicBeatState
 			noModsSine += 180 * elapsed;
 			noModsTxt.alpha = 1 - Math.sin((Math.PI * noModsSine) / 180);
 		}
+		checker.x -= 0.45 / (ClientPrefs.framerate / 60);
+		checker.y -= 0.16 / (ClientPrefs.framerate / 60);
 
 		if(canExit && controls.BACK)
 		{
