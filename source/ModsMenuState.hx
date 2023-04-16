@@ -82,9 +82,6 @@ class ModsMenuState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 		
-		add(checker);
-		checker.scrollFactor.set(0.07,0);
-		checker.color = 0xFFfd719b;
 
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "No Modding Packs Detected!\nOnce you exit this menu, you should see a modsList.txt file", 48);
