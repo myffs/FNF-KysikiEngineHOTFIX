@@ -90,7 +90,7 @@ class StoryMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Story Mode", null);
 		#end
 
 		var num:Int = 0;
@@ -176,7 +176,7 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
-		txtTracklist.color = 0xFFe55777;
+		txtTracklist.color = 0xffffffff;
 		add(txtTracklist);
 		// add(rankText);
 		add(scoreText);

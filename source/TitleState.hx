@@ -583,7 +583,7 @@ class TitleState extends MusicBeatState
 					#if KYSIKI_WATERMARKS
 					addMoreText('MyFnf', 15);
 					addMoreText('Moxie', 15);
-					addMoreText('', 15);
+					addMoreText('Stefan2008', 15);
 					#else
 					addMoreText('present');
 					#end
