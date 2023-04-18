@@ -73,7 +73,7 @@ class MasterEditorMenu extends MusicBeatState {
 
 		add(checker);
 		checker.scrollFactor.set(0.07,0);
-		checker.color = 0xFFfd719b;
+		checker.color = 0xFF000000;
 		
 		#if MODS_ALLOWED
 		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 42).makeGraphic(FlxG.width, 42, 0xFF000000);
