@@ -109,7 +109,7 @@ class MainMenuState extends MusicBeatState
 
 		add(checker);
 		checker.scrollFactor.set(0.07,0);
-		checker.color = 0xFFfd719b;
+		checker.color = 0xFFfd719b; // customizable checker color!
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
