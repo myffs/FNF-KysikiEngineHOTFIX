@@ -43,7 +43,7 @@ class DiscordClient
 	static function onReady()
 	{
 		DiscordRpc.presence({
-			details: "Title State",
+			details: "Main Menu",
 			state: null,
 			largeImageKey: '',
 			largeImageText: "Kysiki Engine"
@@ -83,7 +83,7 @@ class DiscordClient
 			details: details,
 			state: state,
 			largeImageKey: 'iconOG',
-			largeImageText: "Engine Version: " + MainMenuState.psychEngineVersion,
+			largeImageText: "Engine's Current Version: " + MainMenuState.psychEngineVersion,
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp : Std.int(startTimestamp / 1000),
