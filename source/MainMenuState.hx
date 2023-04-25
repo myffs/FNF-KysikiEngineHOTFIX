@@ -27,7 +27,6 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var kysikiEngineVersion:String = '0.2.0'; //For Discord RPC, Current Version, and more...
-	public static var psychEngineVersion:String = '0.6.3';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -140,11 +139,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-        var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "Kysiki Engine v" + kysikiEngineVersion, 12);
-		versionShit.scrollFactor.set();
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+        var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Kysiki Engine v" + kysikiEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
