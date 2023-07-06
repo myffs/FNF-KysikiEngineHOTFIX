@@ -45,7 +45,7 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: "Main Menu",
 			state: null,
-			largeImageKey: '',
+			largeImageKey: 'icon',
 			largeImageText: "Kysiki Engine"
 		});
 	}
@@ -82,8 +82,8 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: details,
 			state: state,
-			largeImageKey: 'iconOG',
-			largeImageText: "Engine's Current Version: " + MainMenuState.kysikiEngineVersion,
+			largeImageKey: 'icon',
+			largeImageText: "Kysiki Engine v" + MainMenuState.kysikiEngineVersion,
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp : Std.int(startTimestamp / 1000),
