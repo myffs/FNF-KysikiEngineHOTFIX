@@ -83,7 +83,7 @@ class DiscordClient
 			details: details,
 			state: state,
 			largeImageKey: 'icon',
-			largeImageText: "Kysiki Engine v" + MainMenuState.kysikiEngineVersion,
+			largeImageText: "Kysiki Engine v" + MainMenuState.psychEngineVersion,
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp : Std.int(startTimestamp / 1000),
