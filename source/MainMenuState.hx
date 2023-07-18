@@ -26,7 +26,7 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var kysikiEngineVersion:String = '0.2.1h'; //For Discord RPC, Current Version, and more...
+	public static var kysikiEngineVersion:String = '0.2.1h';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
