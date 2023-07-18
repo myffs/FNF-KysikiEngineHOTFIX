@@ -91,21 +91,10 @@ class CreditState extends MusicBeatState
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Kysiki Engine Team'],
-			['MyFnf',		'myfnf',		'Main Director of Kysiki Engine',								'https://twitter.com/myfnf1698',	'0000FF'],
-			['Moxie',			'moxie',			'Main Programmer of Kysiki Engine',							'https://twitter.com/meme_hoovy',		'FFFFFF'],
-			['SteFan[BETA]2008',       'stefan',           'Programmer of Kysiki Engine',                                                                                  'https://twitter.com/StefanBETA123',   'D2b48c'],
-			['Kxley',                  'kxley',            'Main Artist / PlayTester of Kysiki Engine',                                                                           'https://twitter.com/RealKxley',   'FFFFFF'],
-			['Wicked',       'wick',           'EX Programmer',                                                                                  'https://twitter.com/vswickedfnf',   '32CD32'],
+			['Uhh..',		'discord',		'The whole team left...',								'',	'FFFFFF'],
 			[''],
-			["Funkin' Crew"],
-			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
-			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
-			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7'],
-			[''],
-			['Shoutouts'],
-			['Discord',     'discord',      'For the rpcs and more',               '',          'FFFFFF'],
-			['ShadowMario',   'shadowmario',  'Psych engine creator \n( yes this engine is psych modified. )',           '',     'FFFFFF'],
+			['Special Thanks'],
+			['weed_',     'discord',      'Compiling this build for me :P',               '',          'FFFFFF'],
 			[''],
 		];
 		
